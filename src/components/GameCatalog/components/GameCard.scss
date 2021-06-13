@@ -1,0 +1,67 @@
+.game-card {
+	border-radius: 50px;
+	margin-bottom: 50px;
+	&-text {
+		flex: 43.7%;
+		padding: 45px 0px 45px 35px;
+	}
+	&-title, &-subtitle {
+		padding-bottom: 25px;
+	}
+	&-description {
+		padding-bottom: 30px;
+	}
+	&-image {
+		flex: 50%;
+		position: relative;
+		&-img {
+			position: absolute;
+		}
+	}
+}
+.hs {
+	&-chameleos {
+		right: 0;
+		top: -25px;
+		z-index: 2;
+	}
+	&-ilGinot {
+		right: -112px;
+		bottom: -39px;
+	}
+	&-malchezar {
+		right: 170px;
+		top: -31px;
+		z-index: 3;
+	}
+}
+.lol-hero {
+	bottom: -50px;
+    right: -27px;
+}
+.brawl {
+	&-boy {
+		right: -50px;
+		bottom: 0px;
+	}
+	&-girl {
+		bottom: 0px;
+    	right: 300px;
+	}
+}
+.wow-illidan {
+	bottom: 0px;
+    right: -75px;
+}
+.steam {
+	&-dota {
+		right: -78px;
+    	bottom: -70px;
+		z-index: 2;
+	}
+	&-pubg {
+		bottom: 0;
+    	right: 240px;
+    	z-index: 1;
+	}
+}

@@ -1,0 +1,652 @@
+.decor {
+	&-header-brand {
+		position: absolute;
+		width: 100%;
+		height: 15%;
+		left: 0;
+		top: 0;
+	}
+	&-footer {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		bottom: 0;
+	}
+	&-main, 
+	&-brawl, 
+	&-albion, 
+	&-lol, 
+	&-hs, 
+	&-wow,
+	&-steam,
+	&-other {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		right: 0;
+		top: 0;
+	}
+	&-albion {
+		width: 39%;
+		&-form {
+			position: absolute;
+			width: 20%;
+			height: 20%;
+			right: 0;
+		}
+	}
+	&-lol-form, 
+	&-albion-form, 
+	&-hs-form, 
+	&-wow-form, 
+	&-steam-form,
+	&-other-form {
+		position: absolute;
+		width: 20%;
+		height: 20%;
+		right: 0;
+	}
+	&-features {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+// Circle
+.circle {
+	&-header {
+		position: absolute;
+		width: 127px;
+		height: 127px;
+		border: 5px solid rgba(63,138,44,0.3);
+		border-radius: 50%;
+		transform: translate(-40px, -21px);
+	}
+	&-footer {
+		position: absolute;
+		height: 50px;
+		width: 50px;
+		border: 5px solid rgba(63,138,44,0.5);
+		border-radius: 50%;
+		right: 15%;
+    	top: -30%;
+	}
+	&-main, &-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow, &-wow-form,
+	&-steam, &-steam-form,
+	&-other, &-other-form {
+		height: 73px;
+		width: 73px;
+		border: 5px solid rgba(63,138,44,1);
+		border-radius: 50%;
+		position: absolute;
+	}
+	&-main {
+		bottom: 10%;
+		right: 18%;
+	}
+	&-brawl {
+		top: 5%;
+		left: 30%;
+	}
+	&-albion {
+		top: 20%;
+    	left: 33%;
+		&-form {
+			bottom: -30%;
+    		right: 30%;
+		}
+	}
+	&-lol {
+		bottom: 8%;
+    	right: 8%;
+		&-form {
+			bottom: -650%;
+			left: -387%;
+		}
+	}
+	&-hs {
+		left: 35%;
+		top: 5%;
+		&-form {
+			left: -380%;
+    		bottom: -548%;
+		}
+	}
+	&-wow {
+		bottom: 5%;
+		&-form {
+			left: -380%;
+    		bottom: -130%;
+		}
+	}
+	&-steam {
+		bottom: -6%;
+		right: 5%;
+		&-form {
+			left: -385%;
+    		bottom: -55%;
+		}
+	}
+	&-other {
+		right: 2%;
+    	bottom: 5%;
+		&-form {
+			left: -399%;
+			bottom: -600%;
+		}
+	}
+	&-features {
+		height: 50px;
+		width: 50px;
+		border: 5px solid rgba(63,138,44,1);
+		border-radius: 50%;
+		position: absolute;
+		left: 5%;
+    	bottom: 10%;
+	}
+}
+
+// Triangle
+.triangle {
+	&-header {
+		position: absolute;
+		width: 127px;
+		height: 127px;
+		right: 20%;
+		transform: translate(10px, -25px) rotate(90deg);
+		&-elem {
+			width: 100%;
+			height: 5px;
+			position: absolute;	
+			background-color: rgba(188,58,128,0.2);
+			&::after, &::before {
+				content: "";
+				width: 100%;
+				height: 5px;
+				top: 55px;
+				position: absolute;	
+				background-color: rgba(188,58,128,0.2);
+			}
+			&::after {
+				transform: rotate(-60deg);
+				right: -30px;
+			}
+			&::before {
+				transform: rotate(60deg);
+				left: -30px;
+			}
+		}
+	}
+	&-footer {
+		position: absolute;
+		width: 62px;
+		height: 62px;
+		top: -5%;
+    	left: 36%;
+    	transform: rotate(25deg);
+		&-elem {
+			width: 100%;
+			height: 5px;
+			position: absolute;	
+			background-color: rgba(188,58,128,0.5);
+			&::after, &::before {
+				content: "";
+				width: 100%;
+				height: 5px;
+				top: 55px;
+				position: absolute;	
+				background-color: rgba(188,58,128,0.5);
+			}
+			&::after {
+				transform: rotate(-60deg);
+				right: -14px;
+    			top: 26px;
+			}
+			&::before {
+				transform: rotate(60deg);
+				top: 26px;
+				left: -15px;
+			}
+		}
+	}
+	&-main, &-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow, &-wow-form,
+	&-steam, &-steam-form,
+	&-other, &-other-form {
+		position: absolute;
+		width: 120px;
+		height: 120px;
+		&-elem {
+			width: 100%;
+			height: 5px;
+			position: absolute;	
+			background-color: rgba(188,58,128,1);
+			&::after, &::before {
+				content: "";
+				width: 100%;
+				height: 5px;
+				top: 55px;
+				position: absolute;	
+				background-color: rgba(188,58,128,1);
+			}
+			&::after {
+				transform: rotate(-60deg);
+				right: -29px;
+    			top: 50px;
+			}
+			&::before {
+				transform: rotate(60deg);
+				top: 51px;
+    			left: -29px;
+			}
+		}
+	}
+	&-main {
+		top: 6%;
+		right: 5%;
+    	transform: rotate(98deg);
+	}
+	&-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow, &-wow-form,
+	&-steam, &-steam-form,
+	&-other, &-other-form {
+		width: 80px;
+		height: 80px;
+		&-elem {
+			&::after {
+				right: -19px;
+    			top: 34px;
+			}
+			&::before {
+				top: 33px;
+    			left: -20px;
+			}
+		}
+	}
+	&-brawl {
+		right: 8%;
+  		top: 10%;
+    	transform: rotate(-20deg);
+	}
+	&-albion {
+		bottom: 9%;
+    	transform: rotate(151deg);
+		&-form {
+			left: -370%;
+    		bottom: -360%;
+			transform: rotate(151deg);
+		}
+	}
+	&-lol {
+		top: 20%;
+		right: 17%;
+		transform: rotate(151deg);
+		&-form {
+			left: -390%;
+   			top: 190%;
+    		transform: rotate(134deg);
+		}
+	}
+	&-hs {
+		right: 10%;
+    	top: 25%;
+		transform: rotate(100deg);
+		&-form {
+			bottom: -50%;
+    		right: 10%;
+			transform: rotate(100deg);
+		}
+	}
+	&-wow {
+		top: 40%;
+    	left: 2%;
+		transform: rotate(100deg);
+		&-form {
+			right: 10%;
+			bottom: -280%;
+			transform: rotate(100deg);
+		}
+	}
+	&-steam {
+		top: 18%;
+    	left: 16%;
+		transform: rotate(100deg);
+		&-form {
+			left: -385%;
+  		 	bottom: -380%;
+    		transform: rotate(5deg);
+		}
+	}
+	&-other {
+		right: 10%;
+		top: 16%;
+		transform: rotate(100deg);
+		&-form {
+			left: -395%;
+			bottom: -115%;
+			transform: rotate(100deg);
+		}
+	}
+	&-features {
+		position: absolute;
+		width: 62px;
+		height: 62px;
+		bottom: -7%;
+    	right: 5%;
+    	transform: rotate(25deg);
+		&-elem {
+			width: 100%;
+			height: 5px;
+			position: absolute;	
+			background-color: rgba(188,58,128,1);
+			&::after, &::before {
+				content: "";
+				width: 100%;
+				height: 5px;
+				top: 55px;
+				position: absolute;	
+				background-color: rgba(188,58,128,1);
+			}
+			&::after {
+				transform: rotate(-60deg);
+				right: -14px;
+    			top: 26px;
+			}
+			&::before {
+				transform: rotate(60deg);
+				top: 26px;
+				left: -15px;
+			}
+		}
+	}
+}
+
+// Cross
+.cross {
+	height: 80px;
+	width: 80px;
+	position: absolute;
+	&-header {
+		top: 125px;
+		right: 2%;
+		transform: rotate(20deg);
+		z-index: 1;
+		&-elem {
+			&::after, &::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 5px;
+				background-color: rgba(29,86,140,0.3);
+			}
+			&::after {
+				transform: rotate(45deg);
+			}
+			&::before {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	&-footer {
+		height: 52px;
+		width: 52px;
+		position: absolute;
+		top: 40%;
+    	left: 20%;
+    	transform: rotate(25deg);
+		&-elem {
+			&::after, &::before {
+				content: "";
+				position: absolute;
+				background-color: rgba(29,86,140,0.46);
+				width: 100%;
+				height: 5px;
+			}
+			&::after {
+				transform: rotate(45deg);
+			}
+			&::before {
+				transform: rotate(-45deg);
+			}
+
+		}
+	}
+	&-main, &-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow, &-wow-form,
+	&-steam,
+	&-other, &-other-form {
+		height: 70px;
+		width: 70px;
+		position: absolute;
+		&-elem {
+			&::after, &::before {
+				content: "";
+				position: absolute;
+				background-color: rgba(29,86,140,1);
+				width: 100%;
+				height: 5px;
+			}
+			&::after {
+				transform: rotate(45deg);
+			}
+			&::before {
+				transform: rotate(-45deg);
+			}
+
+		}
+	}
+	&-main {
+		top: 21%;
+		left: 37%;
+    	transform: rotate(25deg);
+	}
+	&-brawl {
+		bottom: 20%;
+    	left: 9%;
+    	transform: rotate(26deg);
+	}
+	&-albion {
+		bottom: 6%;
+    	left: -94%;
+    	transform: rotate(26deg);
+		&-form {
+			bottom: -720%;
+			right: 50%;
+			transform: rotate(26deg);
+		}
+	}
+	&-lol {
+		left: -17%;
+    	bottom: 9%;
+		transform: rotate(26deg);
+		&-form {
+			top: 316%;
+			right: 10%;
+			transform: rotate(26deg);
+		}
+	}
+	&-hs {
+		bottom: 35%;
+    	left: -12%;
+		transform: rotate(26deg);
+		&-form {
+			right: 10%;
+    		bottom: -690%;
+			transform: rotate(26deg);
+		}
+	}
+	&-wow {
+		right: 18%;
+    	top: 18%;
+		transform: rotate(26deg);
+		&-form {
+			left: -35%;
+    		bottom: 0%;
+			transform: rotate(26deg);
+		}
+	}
+	&-steam {
+		right: 5%;
+    	top: 24%;
+		transform: rotate(26deg);
+	}
+	&-other {
+		bottom: 5%;
+		left: -10%;
+		transform: rotate(26deg);
+		&-form {
+			right: 8%;
+			bottom: -250%;
+			transform: rotate(26deg);
+		}
+	}
+	&-features {
+		height: 52px;
+		width: 52px;
+		position: absolute;
+		top: 16%;
+    	left: 26%;
+    	transform: rotate(33deg);
+		&-elem {
+			&::after, &::before {
+				content: "";
+				position: absolute;
+				background-color: rgba(29,86,140,1);
+				width: 100%;
+				height: 5px;
+			}
+			&::after {
+				transform: rotate(45deg);
+			}
+			&::before {
+				transform: rotate(-45deg);
+			}
+
+		}
+	}
+}
+
+// Square
+.square {
+	&-footer {
+		width: 42px;
+		height: 42px;
+		position: absolute;
+		right: 31%;
+		top: 32%;
+		transform: rotate(35deg);
+		border: 5px solid rgba(220,38,38,0.5);
+	}
+	&-main, &-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow, &-wow-form,
+	&-steam, &-steam-form,
+	&-other, &-other-form {
+		width: 42px;
+		height: 42px;
+		position: absolute;
+		border: 5px solid rgba(220,38,38,1);
+	}
+	&-main {
+		bottom: 18%;
+    	left: 10%;
+		transform: rotate(35deg);
+	}
+	&-brawl, 
+	&-albion, &-albion-form, 
+	&-lol, &-lol-form,
+	&-hs, &-hs-form,
+	&-wow,
+	&-steam, &-steam-form,
+	&-other, &-other-form {
+		width: 50px;
+    	height: 50px;
+		transform: rotate(35deg);
+	}
+	&-wow-form {
+		width: 70px;
+    	height: 70px;
+		transform: rotate(35deg);
+	}
+	&-brawl {
+		bottom: 18%;
+    	right: 10%;
+	}
+	&-albion {
+		right: 14%;
+		top: 16%;
+		&-form {
+			bottom: -1000%;
+    		left: -370%;
+		}
+	}
+	&-lol {
+		top: 38%;
+    	left: 7%;
+		&-form {
+			left: -300%;
+			top: 40%;
+		}
+	}
+	&-hs {
+		bottom: 0%;
+    	left: -22%;
+		&-form {
+			left: -390%;
+    		bottom: -290%;
+		}
+	}
+	&-wow {
+		bottom: 35%;
+    	right: 6%;
+		&-form {
+			left: -385%;
+    		bottom: -720%;
+		}
+	}
+	&-steam {
+		left: -32%;
+    	bottom: -1%;
+		&-form {
+			right: 17%;
+    		bottom: -190%;
+		}
+	}
+	&-other {
+		top: 2%;
+		left: 5%;
+		&-form {
+			left: -305%;
+			top: 20%;
+		}
+	}
+	&-features {
+		width: 41px;
+		height: 41px;
+		position: absolute;
+		border: 5px solid rgba(220,38,38,1);
+		top: 29%;
+    	right: 10%;
+		transform: rotate(35deg);
+	}
+}
+

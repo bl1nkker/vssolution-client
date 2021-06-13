@@ -1,0 +1,12 @@
+.fcard {
+	width: 320px;
+	&-img-container {
+		height: 180px;
+		width: 180px;
+		border-radius: 50%;
+		background: rgba(29,86,140,.7);
+	}
+	&-subtitle {
+		padding-top: 15px;
+	}
+}

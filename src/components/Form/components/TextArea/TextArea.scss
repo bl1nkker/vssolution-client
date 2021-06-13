@@ -1,0 +1,14 @@
+.textarea {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 120px;
+	background-color: rgba(29,86,140,1);
+	padding: 16px 23px;
+	border: none;
+	border-radius: 10px;
+	outline: none;
+	&::-webkit-input-placeholder {
+		color: rgba(255,255,255,0.3);
+	}
+}

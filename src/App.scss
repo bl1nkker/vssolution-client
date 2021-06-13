@@ -1,0 +1,47 @@
+.navbar {
+	background: #00042C;
+}
+
+.page {
+	&-title, &-title-min, &-title-min-reg, &-title-label {
+		color: #FFFFFF;
+	}
+	&-subtitle,	&-subtitle-h, &-subtitle-reg {
+		color: #E5E5E5;
+	}
+	&-subtitle-social {
+		color: rgba(162,162,162,1);
+	}
+	&-title {
+		font-size: 48px;
+	}
+	&-title-min {
+		font-size: 36px;
+		font-weight: 700;
+		&-reg {
+			font-size: 36px;
+		}
+	}
+	&-title-label {
+		font-size: 30px;
+		width: 100%;
+	}
+	&-subtitle,
+	&-subtitle-social,
+	&-subtitle-reg {
+		font-size: 24px;
+	}
+	&-subtitle-h {
+		font-size: 20px;
+	}
+	&-subtitle,
+	&-subtitle-h,
+	&-title-label,
+	&-subtitle-social {
+		font-weight: 400;
+	}
+	&-title,
+	&-subtitle-reg {
+		font-weight: 500;
+	}
+}

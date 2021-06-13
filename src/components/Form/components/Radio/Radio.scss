@@ -1,0 +1,60 @@
+.radio {
+	position: relative;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	&-label {
+		padding-top: 30px;
+		padding-left: 50px;
+	}
+	&-container {
+		width: 30%;
+		padding-bottom: 40px;
+	}
+	& input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		&:checked ~ .radio-mark::after {
+			display: block;
+			&::after {
+				content: "\2714";
+				background-color: #FFFFFF;
+			}
+		}
+	}
+	&-mark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: 30px;
+		height: 30px;
+		width: 30px;
+		background-color: transparent;
+		border: 2px solid #FFFFFF;
+		border-radius: 5px;
+		padding-left: 10px;
+		&::after {
+			content: "";
+			color: black;
+			border-radius: 5px;
+			border: none;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #FFFFFF;
+			
+		}
+	}
+}
+.radio-mark::after {
+	content: "\2714";
+	position: absolute;
+	display: none;
+	
+}
+
+

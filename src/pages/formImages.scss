@@ -1,0 +1,164 @@
+.brawl {
+	&-box1, &-box2, &-box3 {
+		position: absolute;
+	}
+	&-box1 {
+		top: 10%;
+    	left: -14%;
+	}
+	&-box2 {
+		top: 26%;
+    	right: -14%;
+	}
+	&-box3 {
+		bottom: 13%;
+    	left: -20%;
+	}
+}
+.albion {
+	&-item1,
+	&-item2,
+	&-item3,
+	&-item4 {
+		position: absolute;
+	}
+	&-item1 {
+    	top: -3%;
+		left: -22%;
+	}
+	&-item2 {
+		right: -13%;
+    	top: 34%;
+	}
+	&-item3 {
+		top: -63%;
+    	left: -24%;
+	}
+	&-item4 {
+		top: 40%;
+    	right: -10%;
+	}
+}
+.lol {
+	&-item1,
+	&-item2,
+	&-item3,
+	&-item4 {
+		position: absolute;
+	}
+	&-item1 {
+    	top: -3%;
+		right: -13%;
+		width: 23%;
+	}
+	&-item2 {
+		left: -20%;
+    	top: 33%;
+	}
+	&-item3 {
+		bottom: 15%;
+		right: -13%;
+		width: 30%;
+	}
+	&-item4 {
+		z-index: 1;
+		left: -15%;
+		bottom: -16%;
+		width: 34%;
+	}
+}
+.hs {
+	&-item1,
+	&-item2,
+	&-item3 {
+		position: absolute;
+	}
+	&-item1 {
+    	top: -3%;
+		left: -13%;
+		width: 20%;
+	}
+	&-item2 {
+		right: -13%;
+    	top: 33%;
+    	width: 21%;
+	}
+	&-item3 {
+		bottom: -3%;
+    	left: -14%;
+    	width: 20%;
+	}
+}
+.wow {
+	&-item1,
+	&-item2,
+	&-item3 {
+		position: absolute;
+	}
+	&-item1 {
+		right: -12%;
+    	top: -8%;
+		width: 25%;
+	}
+	&-item2 {
+		left: -21%;
+		top: 29%;
+		width: 30%;
+	}
+	&-item3 {
+		bottom: 0%;
+		right: -13%;
+		width: 24%;
+	}
+}
+.steam {
+	&-item1,
+	&-item2,
+	&-item3,
+	&-item4 {
+		position: absolute;
+	}
+	&-item1 {
+		right: -13%;
+    	top: -10%;
+    	width: 26%;
+	}
+	&-item2 {
+		left: -13%;
+		top: 26%;
+		width: 22%;
+	}
+	&-item3 {
+		top: 45%;
+		right: -13%;
+		width: 25%;
+	}
+	&-item4 {
+		bottom: -8%;
+		left: -13%;
+		width: 23%;
+		z-index: 1;
+	}
+}
+.other {
+	&-item1,
+	&-item2,
+	&-item3 {
+		position: absolute;
+	}
+	&-item1 {
+		right: -13%;
+		top: -10%;
+		width: 22%;
+	}
+	&-item2 {
+		top: 26%;
+		left: -13%;
+		width: 17%;
+	}
+	&-item3 {
+		right: -13%;
+		bottom: 6%;
+		width: 20%;
+	}
+}

@@ -1,0 +1,18 @@
+@import './App.scss';
+@import './components/header/Header.scss';
+@import './components/buttons/Buttons.scss';
+
+*, html {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1;
+	scroll-behavior: smooth;
+}
+p {
+	margin-bottom: 0 !important;
+}
+a {
+	text-decoration: none !important;
+}
+#root {
+	background-color: #1E213E;
+}

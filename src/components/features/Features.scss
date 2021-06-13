@@ -1,0 +1,21 @@
+.features {
+	&-container {
+		position: relative;
+		background: linear-gradient(180deg, #1E213E 15.84%, #181A29 100%);
+
+	}
+	&-title {
+		position: relative;
+		padding: 50px 0px 10px 0px;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: -2%;
+			height: 7px;
+			width: 105%;
+			background-color: #BC3A80;
+			border-radius: 10px;
+		}
+	}
+}

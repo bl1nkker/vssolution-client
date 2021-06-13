@@ -1,0 +1,50 @@
+.game-catalog {
+	padding-bottom: 50px;
+	&-title {
+		padding-top: 50px;
+		padding-bottom: 10px;
+		margin-bottom: 67px;
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border-radius: 10px;
+			width: 137px;
+			height: 7px;
+			background-color: rgba(29,86,140,1);
+		}
+	}
+}
+
+.bg {
+	&-hearthstone,
+	&-albion,
+	&-brawl,
+	&-lol,
+	&-steam,
+	&-wow {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	&-hearthstone {
+		background-image: url('hs-card-bg.png');
+	}
+	&-albion {
+		background-image: url('albion-card-bg.png');
+	}
+	&-brawl {
+		background-image: url('brawl-card-bg.png');
+	}
+	&-lol {
+		background-image: url('lol-card-bg.png');
+	}
+	&-steam {
+		background-image: url('steam-card-bg.png');
+	}
+	&-wow {
+		background-image: url('wow-card-bg.png');
+	}
+}

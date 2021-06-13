@@ -1,0 +1,54 @@
+.modalForm {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	border-radius: 50px;
+	background-color: rgba(0,0,0, 0.8);
+	transform: scale(0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&-container {
+		width: 550px;
+		height: 335px;
+	}
+	&-icon {
+		height: 187px;
+		width: 187px;
+		background-color: rgba(188, 58, 128, 1);
+		border-radius: 50%;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			height: 18px;
+			width: 68px;
+			background-color: #fff;
+			top: 57%;
+			left: 13%;
+			transform: rotate(45deg);
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			height: 18px;
+			width: 125px;
+			background-color: #fff;
+			top: 45%;
+    		right: 5%;
+    		transform: rotate(-45deg);
+		}
+	}
+	&-text {
+		font-size: 48px;
+		font-weight: 700;
+		text-align: center;
+		color: #FFFFFF;
+	}
+}
+.modalForm.active {
+	transform: scale(1);
+}
