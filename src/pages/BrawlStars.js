@@ -21,17 +21,31 @@ class BrawlStars extends React.Component {
 			modalActive: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
 			uploadedFileName: '',
-			uploadedFileSize: null
+			uploadedFileSize: null,
+			uploadedFiles: [],
 		}
 		this.submitBrawl = this.submitBrawl.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+		this.removeFromList = this.removeFromList.bind(this)
+	}
+
+	removeFromList (event, fileToRemove)
+	{
+		event.preventDefault()
+		const updatedFilesList = [...this.state.uploadedFiles].filter(file => file.name !== fileToRemove.name)
+		this.setState({ uploadedFiles: [...updatedFilesList] })
+		// console.log(updatedFilesList);
 	}
 	
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			this.setState({ uploadedFileName: event.target.files[0]?.name, 
-				uploadedFileSize:event.target.files[0]?.size})
+			let listOfFiles = []
+			Array.from(event.target.files).forEach(file => listOfFiles.push(file));
+			this.setState({ uploadedFiles: [...listOfFiles]})
+			// this.setState({ uploadedFileName: event.target.files[0]?.name, 
+			// 	uploadedFileSize:event.target.files[0]?.size})
+
 			// Removed
 			// btnUpload.classList.remove('non-file');
 			// btnUpload.classList.add('has-file');
@@ -107,10 +121,9 @@ class BrawlStars extends React.Component {
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
 							// Added
-							filesIsUploaded={this.state.uploadedFileName}
-							changeHandler={e => this.fileUploadHandler(e)} />
-						<p>{this.state.uploadedFileName}</p>
-						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
+							uploadedFiles={this.state.uploadedFiles}
+							changeHandler={e => this.fileUploadHandler(e)}
+							removeFromList={this.removeFromList} />
 					</Upload>
 					<Slider 
 						title="Укажите цену за которую Вы хотите продать свой аккаунт"
