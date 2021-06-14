@@ -29,6 +29,7 @@ class Albion extends React.Component {
 			modalActiveSilver: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
 			gameName: "Albion Online",
+			uploadedFiles: [],
 			uploadedFileName: '',
 			uploadedFileSize: null
 			
@@ -36,18 +37,34 @@ class Albion extends React.Component {
 		this.submitAlbion = this.submitAlbion.bind(this);
 		this.sellSilver = this.sellSilver.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+		this.removeFromList = this.removeFromList.bind(this)
+	}
+
+	// Added
+	removeFromList (event, fileToRemove)
+	{
+		event.preventDefault()
+		const updatedFilesList = [...this.state.uploadedFiles].filter(file => file.name !== fileToRemove.name)
+		this.setState({ uploadedFiles: [...updatedFilesList] })
+		// console.log(updatedFilesList);
 	}
 	
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			this.setState({ uploadedFileName: event.target.files[0]?.name, 
-				uploadedFileSize:event.target.files[0]?.size})
+			let listOfFiles = []
+			Array.from(event.target.files).forEach(file => listOfFiles.push(file));
+			this.setState({ uploadedFiles: [...listOfFiles]})
+			// this.setState({ uploadedFileName: event.target.files[0]?.name, 
+			// 	uploadedFileSize:event.target.files[0]?.size})
+
 			// Removed
 			// btnUpload.classList.remove('non-file');
 			// btnUpload.classList.add('has-file');
 		}
 	}
+
+	
 
 	async submitAlbion(event) {
 		const data = new FormData();
@@ -150,10 +167,10 @@ class Albion extends React.Component {
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
 							// Added
-							filesIsUploaded={this.state.uploadedFileName}
-							changeHandler={e => this.fileUploadHandler(e)} />
-						<p>{this.state.uploadedFileName}</p>
-						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
+							uploadedFiles={this.state.uploadedFiles}
+							changeHandler={e => this.fileUploadHandler(e)}
+							removeFromList={this.removeFromList} />
+						
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"

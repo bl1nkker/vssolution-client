@@ -80,3 +80,44 @@ input[type="file"] {
 	font-size: 40px;
 	left: 42%;
 }
+
+// Added
+
+.files-info-container
+{
+	
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 50vw;
+}
+
+.file-info-container
+{
+	display: flex;
+	align-items: center;
+	border: 1px blue solid;
+	border-radius: 10px;
+	background-color: #1d568c;
+	
+	color: #ffffffbd;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+.file-info
+{
+	font-size: 12px;
+}
+
+.file-delete{
+	background-color: #1d568c;
+	color: rgb(255, 106, 106);
+	border:none;
+	transition: .5s;
+}
+
+.file-delete:hover
+{
+	color: rgb(252, 10, 10);
+}
