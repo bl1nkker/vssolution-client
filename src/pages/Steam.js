@@ -1,4 +1,4 @@
-import React 			from 'react';
+import React			from 'react';
 import ButtonChoise 	from '../components/buttons/ButtonChoise';
 import ButtonSubmit 	from '../components/buttons/ButtonSubmit';
 import ButtonUpload 	from '../components/buttons/ButtonUpload';
@@ -16,13 +16,15 @@ import Upload 			from '../components/Form/components/Upload/Upload';
 import Form 			from '../components/Form/Form';
 import Header 			from '../components/header/Header';
 import axios			from 'axios';
+import { serverURL } from '../axios';
 
 export default class Steam extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
 			modalActive: false,
-			userData: JSON.parse(localStorage.getItem('userData'))
+			userData: JSON.parse(localStorage.getItem('userData')),
+			uploadedFileName: ''
 		}
 		this.submitSteam = this.submitSteam.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -31,6 +33,7 @@ export default class Steam extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
+			this.setState({ uploadedFileName: event.target.files[0].name})
 			btnUpload.classList.remove('non-file');
 			btnUpload.classList.add('has-file');
 		}
@@ -43,6 +46,7 @@ export default class Steam extends React.Component {
 		}
 		data.append("gameName", "Steam");
 		if (this.state.userData) {
+			console.log();
 			data.append("userId", this.state.userData.userId);
 			data.append("name", this.state.userData.name);
 		}
@@ -52,7 +56,8 @@ export default class Steam extends React.Component {
 		data.append("contacts", event.target[4].value);
 		
 		event.preventDefault();
-		await axios.post('/sell/account/steam', data, {
+		// http://localhost:5000/sell/account/steam
+		await axios.post(serverURL + '/sell/account/steam', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}
@@ -62,7 +67,9 @@ export default class Steam extends React.Component {
 		this.setState({modalActive: true});
 		setTimeout(() => window.scrollTo(0, 0), 3000);
 	}
+	
 	render() {
+		console.log(this.state.uploadedFileName);
 		return(
 			<div>
 				<Header 
@@ -120,6 +127,7 @@ export default class Steam extends React.Component {
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
 						/>
+						<p>{this.state.uploadedFileName}</p>
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"

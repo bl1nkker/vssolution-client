@@ -1,5 +1,6 @@
 import axios 			from 'axios';
 import React 			from 'react';
+import { serverURL } from '../axios';
 import ButtonChoise 	from '../components/buttons/ButtonChoise';
 import ButtonSubmit 	from '../components/buttons/ButtonSubmit';
 import ButtonUpload 	from '../components/buttons/ButtonUpload';
@@ -58,7 +59,8 @@ class Albion extends React.Component {
 		data.append("contacts", event.target[4].value);
 		
 		event.preventDefault();
-		await axios.post('/sell/account/albion', data, {
+		// http://localhost:5000/sell/account/albion
+		await axios.post(serverURL + '/sell/account/albion', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}

@@ -16,6 +16,7 @@ import Triangle 		from '../components/Decor/Triangle';
 import Cross 			from '../components/Decor/Cross';
 import { Modal } 		from '../components/Form/components/Modal/Modal';
 import axios			from 'axios';
+import { serverURL } from '../axios';
 
 export default class LeagueOfLegends extends React.Component {
 	constructor(props){
@@ -57,7 +58,8 @@ export default class LeagueOfLegends extends React.Component {
 		
 		console.log(event)
 		event.preventDefault();
-		await axios.post('/sell/account/lol', data, {
+		// http://localhost:5000/sell/account/lol
+		await axios.post(serverURL + '/sell/account/lol', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}

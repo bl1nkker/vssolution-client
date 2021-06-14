@@ -3,13 +3,15 @@ import {AuthContext} from '../context/AuthContext';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import './Account.scss';
+import { serverURL } from '../axios';
 
 const Account = () => {
 	const { userId } = useContext(AuthContext);
 	const [offer, setOffer] = useState('');
 	const getOffers = async () => {
 		try {
-			await axios.post('/api/offer/account', { userId }, 
+			// http://localhost:5000/api/offer/account
+			await axios.post(serverURL + '/api/offer/account', { userId }, 
 			{
 				headers: {
 					'Content-Type' : 'application/json'

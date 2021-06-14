@@ -17,6 +17,7 @@ import Upload 			from '../components/Form/components/Upload/Upload';
 import Form 			from '../components/Form/Form';
 import Header 			from '../components/header/Header';
 import axios			from 'axios';
+import { serverURL } from '../axios';
 
 export default class Other extends React.Component {
 	constructor(props){
@@ -52,7 +53,8 @@ export default class Other extends React.Component {
 		data.append("contacts", event.target[4].value);
 		
 		event.preventDefault();
-		await axios.post('/sell/account/other', data, {
+		// http://localhost:5000/sell/account/other
+		await axios.post(serverURL + '/sell/account/other', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}
