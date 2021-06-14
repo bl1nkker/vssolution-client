@@ -28,7 +28,10 @@ class Albion extends React.Component {
 			modalActive: false,
 			modalActiveSilver: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
-			gameName: "Albion Online"
+			gameName: "Albion Online",
+			uploadedFileName: '',
+			uploadedFileSize: null
+			
 		}
 		this.submitAlbion = this.submitAlbion.bind(this);
 		this.sellSilver = this.sellSilver.bind(this);
@@ -38,8 +41,11 @@ class Albion extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			this.setState({ uploadedFileName: event.target.files[0]?.name, 
+				uploadedFileSize:event.target.files[0]?.size})
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
 
@@ -143,7 +149,11 @@ class Albion extends React.Component {
 							name="screenshot"
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
-						/>
+							// Added
+							filesIsUploaded={this.state.uploadedFileName}
+							changeHandler={e => this.fileUploadHandler(e)} />
+						<p>{this.state.uploadedFileName}</p>
+						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"

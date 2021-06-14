@@ -19,7 +19,9 @@ class BrawlStars extends React.Component {
 		super(props)
 		this.state = {
 			modalActive: false,
-			userData: JSON.parse(localStorage.getItem('userData'))
+			userData: JSON.parse(localStorage.getItem('userData')),
+			uploadedFileName: '',
+			uploadedFileSize: null
 		}
 		this.submitBrawl = this.submitBrawl.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -28,8 +30,11 @@ class BrawlStars extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			this.setState({ uploadedFileName: event.target.files[0]?.name, 
+				uploadedFileSize:event.target.files[0]?.size})
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
 	
@@ -101,7 +106,11 @@ class BrawlStars extends React.Component {
 							name="screenshot"
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
-						/>
+							// Added
+							filesIsUploaded={this.state.uploadedFileName}
+							changeHandler={e => this.fileUploadHandler(e)} />
+						<p>{this.state.uploadedFileName}</p>
+						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
 					</Upload>
 					<Slider 
 						title="Укажите цену за которую Вы хотите продать свой аккаунт"

@@ -17,6 +17,8 @@ import Upload 			from '../components/Form/components/Upload/Upload';
 import Form 			from '../components/Form/Form';
 import Header 			from '../components/header/Header';
 import axios			from 'axios';
+
+// Useless in production
 import { serverURL } from '../axios';
 
 export default class Other extends React.Component {
@@ -24,7 +26,9 @@ export default class Other extends React.Component {
 		super(props)
 		this.state = {
 			modalActive: false,
-			userData: JSON.parse(localStorage.getItem('userData'))
+			userData: JSON.parse(localStorage.getItem('userData')),
+			uploadedFileName: '',
+			uploadedFileSize: null
 		}
 		this.submitOther = this.submitOther.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -33,8 +37,11 @@ export default class Other extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			this.setState({ uploadedFileName: event.target.files[0]?.name, 
+				uploadedFileSize:event.target.files[0]?.size})
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
 	
@@ -117,8 +124,12 @@ export default class Other extends React.Component {
 							btnName="Загрузить файл(ы)"
 							name="screenshot"
 							id="screenshot"
+							// Added
+							filesIsUploaded={this.state.uploadedFileName}
 							changeHandler={e => this.fileUploadHandler(e)}
 						/>
+						<p>{this.state.uploadedFileName}</p>
+						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"

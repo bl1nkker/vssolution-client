@@ -24,6 +24,8 @@ export default class LeagueOfLegends extends React.Component {
 		this.state = {
 			modalActive: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
+			uploadedFileName: '',
+			uploadedFileSize: null
 		}
 		this.submitLol = this.submitLol.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -32,8 +34,11 @@ export default class LeagueOfLegends extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			this.setState({ uploadedFileName: event.target.files[0]?.name, 
+				uploadedFileSize:event.target.files[0]?.size})
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
 	
@@ -136,7 +141,12 @@ export default class LeagueOfLegends extends React.Component {
 							name="screenshot"
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
+							// Added
+							filesIsUploaded={this.state.uploadedFileName}
+							changeHandler={e => this.fileUploadHandler(e)}
 						/>
+						<p>{this.state.uploadedFileName}</p>
+						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
 					</Upload>
 					<TextInput
 						title="Укажите контактную информацию"

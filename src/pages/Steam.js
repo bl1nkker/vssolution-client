@@ -24,7 +24,8 @@ export default class Steam extends React.Component {
 		this.state = {
 			modalActive: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
-			uploadedFileName: ''
+			uploadedFileName: '',
+			uploadedFileSize: null
 		}
 		this.submitSteam = this.submitSteam.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
@@ -33,7 +34,8 @@ export default class Steam extends React.Component {
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			this.setState({ uploadedFileName: event.target.files[0].name})
+			this.setState({ uploadedFileName: event.target.files[0]?.name, 
+				uploadedFileSize:event.target.files[0]?.size})
 			btnUpload.classList.remove('non-file');
 			btnUpload.classList.add('has-file');
 		}
@@ -71,6 +73,7 @@ export default class Steam extends React.Component {
 	render() {
 		console.log(this.state.uploadedFileName);
 		return(
+			
 			<div>
 				<Header 
 					page="steam"
@@ -125,9 +128,11 @@ export default class Steam extends React.Component {
 							btnName="Загрузить файл(ы)"
 							name="screenshot"
 							id="screenshot"
+							filesIsUploaded={this.state.uploadedFileName}
 							changeHandler={e => this.fileUploadHandler(e)}
 						/>
 						<p>{this.state.uploadedFileName}</p>
+						{this.state.uploadedFileSize && <p>{this.state.uploadedFileSize} bytes</p>}
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"
