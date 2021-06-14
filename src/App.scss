@@ -1,3 +1,7 @@
+:root
+{
+	--media-max-width: 500px;
+}
 
 
 .navbar {
@@ -55,4 +59,10 @@
 
 	label{font-size: 8px !important;}
 	button{font-size: 8px !important;}
+	.page-title.pb-5
+	{
+		width: 50vw;
+	}
+
+	.app-container{width: 100%}
 }

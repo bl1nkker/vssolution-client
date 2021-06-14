@@ -10,3 +10,24 @@
 		padding-top: 15px;
 	}
 }
+
+@media only screen and (max-width: 600px) 
+{
+	.fcard {
+		width: 30%;
+		&-img-container {
+			height: 80px;
+			width: 80px;
+			border-radius: 50%;
+			background: rgba(29,86,140,.7);
+		}
+		img{
+			width: 70px;
+			height: 70px;
+		}
+		&-subtitle {
+			padding-top: 15px;
+		}
+	}
+	
+}

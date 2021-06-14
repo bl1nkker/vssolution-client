@@ -104,3 +104,25 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 600px)
+{
+	.header
+	{
+		&-offer{
+			padding-bottom: 120px;
+			width: 95vw;
+		}
+	}
+
+	.hero-image {
+		&-main { width: 70%; }
+		&-brawl { width: 36%; }
+		&-albion { width: 32.6%; }
+		&-lol {	width: 37.6%; }
+		&-hs { width: 43.6%; }
+		&-wow { width: 32.8%; }
+		&-steam { width: 35.4%; }
+		&-other { width: 38%; }
+	}
+}
