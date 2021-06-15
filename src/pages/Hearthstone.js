@@ -116,6 +116,7 @@ export default class Hearthstone extends React.Component {
 						placeholder="Например: xxxxxxx@gmail.com"
 						name="contacts"
 						required
+						isContacts={true}
 					>
 						<SocialSubtitle text="@Telegram , VK , Номер тел. , Эл. почта и т.д."/>
 					</TextInput>
