@@ -7,6 +7,7 @@ import Form from '../components/Form/Form';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import Message from '../components/Form/components/Message/Message';
+import { serverURL } from '../axios';
 
 const AuthPage = () => {
 	const { login } = useContext(AuthContext);
@@ -26,7 +27,8 @@ const AuthPage = () => {
 				password: event.target[1].value
 			};
 		try {
-			await axios.post('/api/auth/login', data, {
+			// http://localhost:5000/api/auth/login
+			await axios.post(serverURL + '/api/auth/login', data, {
 				headers: {
 					'Content-Type': 'application/json'
 				}
@@ -54,7 +56,8 @@ const AuthPage = () => {
 			password: event.target[2].value
 		};
 		try {
-			await axios.post('/api/auth/register', data, {
+			// http://localhost:5000/api/auth/register
+			await axios.post(serverURL + '/api/auth/register', data, {
 				headers: {
 					'Content-Type': 'application/json'
 				}

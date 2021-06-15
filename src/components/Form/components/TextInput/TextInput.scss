@@ -1,3 +1,11 @@
+:root
+{
+	--icon-bg-telegram:rgb(69, 245, 230);
+	--icon-bg-vk:rgb(7, 47, 224);;
+	--icon-bg-phone:rgb(154, 255, 95);
+	--icon-bg-email:rgb(255, 109, 109);
+}
+
 .text-input {
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -17,4 +25,60 @@
 	&[required]:not(:focus):valid {
 		border: 2px solid rgba(0, 255, 0, 1);
 	}
+}
+
+// Added
+.social-buttons {
+	display: flex;
+	justify-content: space-around;
+	margin: 1em 0;
+}
+
+.social-buttons button{
+	width: 50px;
+	background-color: rgb(255, 255, 255);
+	height: 50px;
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+	margin: 0;
+	transition: .5s;
+}
+
+.social-buttons img{width: 30px;}
+
+.social-button.vk:hover{background-color: var(--icon-bg-vk)}
+.social-button.telegram:hover{background-color: var(--icon-bg-telegram)}
+.social-button.phone:hover{background-color: var(--icon-bg-phone)}
+.social-button.email:hover{background-color: var(--icon-bg-email)}
+
+.social-button.vk:focus{background-color: var(--icon-bg-vk)}
+.social-button.telegram:focus{background-color: var(--icon-bg-telegram)}
+.social-button.phone:focus{background-color: var(--icon-bg-phone)}
+.social-button.email:focus{background-color: var(--icon-bg-email)}
+
+
+
+
+
+@media only screen and (max-width: 600px)
+{
+	.text-input {
+		width: 100%;
+		height: 3vh;
+		padding-top: 10px;
+		&::-webkit-input-placeholder {
+			color: rgba(255,255,255,0.3);
+			font-size: var(--media-small-font);
+		}
+		&[required]:invalid {
+			border: 2px solid rgba(255, 0, 0, 1);
+		}
+		&[required]:not(:focus):valid {
+			border: 2px solid rgba(0, 255, 0, 1);
+		}
+	}
+
+	.social-buttons button{width: 20px; height: 20px;}
+	.social-buttons img{width: 10px;}
 }

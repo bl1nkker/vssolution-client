@@ -57,4 +57,13 @@
 	
 }
 
-
+@media only screen and (max-width: 600px) 
+{
+	.radio{
+		&-mark {
+			height: 5vw;
+			width: 5vw;
+			margin: 30px;
+		}
+	}
+}

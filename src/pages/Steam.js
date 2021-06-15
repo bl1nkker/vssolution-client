@@ -1,4 +1,4 @@
-import React 			from 'react';
+import React			from 'react';
 import ButtonChoise 	from '../components/buttons/ButtonChoise';
 import ButtonSubmit 	from '../components/buttons/ButtonSubmit';
 import ButtonUpload 	from '../components/buttons/ButtonUpload';
@@ -16,23 +16,44 @@ import Upload 			from '../components/Form/components/Upload/Upload';
 import Form 			from '../components/Form/Form';
 import Header 			from '../components/header/Header';
 import axios			from 'axios';
+import { serverURL } from '../axios';
 
 export default class Steam extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
 			modalActive: false,
-			userData: JSON.parse(localStorage.getItem('userData'))
+			userData: JSON.parse(localStorage.getItem('userData')),
+			uploadedFileName: '',
+			uploadedFileSize: null,
+			
+			uploadedFiles: [],
 		}
 		this.submitSteam = this.submitSteam.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+		this.removeFromList = this.removeFromList.bind(this)
+	}
+
+	removeFromList (event, fileToRemove)
+	{
+		event.preventDefault()
+		const updatedFilesList = [...this.state.uploadedFiles].filter(file => file.name !== fileToRemove.name)
+		this.setState({ uploadedFiles: [...updatedFilesList] })
+		// console.log(updatedFilesList);
 	}
 	
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			let listOfFiles = []
+			Array.from(event.target.files).forEach(file => listOfFiles.push(file));
+			this.setState({ uploadedFiles: [...listOfFiles]})
+			// this.setState({ uploadedFileName: event.target.files[0]?.name, 
+			// 	uploadedFileSize:event.target.files[0]?.size})
+
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
 
@@ -43,6 +64,7 @@ export default class Steam extends React.Component {
 		}
 		data.append("gameName", "Steam");
 		if (this.state.userData) {
+			console.log();
 			data.append("userId", this.state.userData.userId);
 			data.append("name", this.state.userData.name);
 		}
@@ -52,7 +74,8 @@ export default class Steam extends React.Component {
 		data.append("contacts", event.target[4].value);
 		
 		event.preventDefault();
-		await axios.post('/sell/account/steam', data, {
+		// http://localhost:5000/sell/account/steam
+		await axios.post(serverURL + '/sell/account/steam', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}
@@ -62,8 +85,11 @@ export default class Steam extends React.Component {
 		this.setState({modalActive: true});
 		setTimeout(() => window.scrollTo(0, 0), 3000);
 	}
+	
 	render() {
+		console.log(this.state.uploadedFileName);
 		return(
+			
 			<div>
 				<Header 
 					page="steam"
@@ -119,13 +145,17 @@ export default class Steam extends React.Component {
 							name="screenshot"
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
-						/>
+							// Added
+							uploadedFiles={this.state.uploadedFiles}
+							changeHandler={e => this.fileUploadHandler(e)}
+							removeFromList={this.removeFromList} />
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"
 						placeholder="Например: xxxxxxx@gmail.com"
 						name="contacts"
 						required
+						isContacts={true}
 					>
 						<SocialSubtitle text="@Telegram , VK , Номер тел. , Эл. почта и т.д."/>
 					</TextInput>

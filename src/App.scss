@@ -1,3 +1,12 @@
+:root
+{
+	--media-max-width: 500px;
+	--media-large-font: 20px;
+	--media-medium-font: 12px;
+	--media-small-font: 8px;
+}
+
+
 .navbar {
 	background: #00042C;
 }
@@ -43,5 +52,29 @@
 	&-title,
 	&-subtitle-reg {
 		font-weight: 500;
+	}
+}
+
+@media only screen and (max-width: 600px) 
+{
+	h1{font-size: var(--media-large-font) !important;}
+	h3{font-size: var(--media-medium-font) !important;}
+	p{font-size: var(--media-small-font) !important;} 
+	a{font-size: var(--media-small-font) !important;} 
+
+	label{font-size: var(--media-small-font) !important;}
+	button{font-size: var(--media-small-font) !important;}
+	input{font-size: var(--media-medium-font) !important;}
+	textarea{font-size: var(--media-medium-font) !important;}
+
+	.page-title.pb-5{width: 50vw;}
+	.page-subtitle-social{font-size: var(--media-small-font);}
+	.page-subtitle{font-size: var(--media-medium-font);}
+
+	.app-container{width: 100%}
+	.app-navbar{
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 20vw !important;	
 	}
 }

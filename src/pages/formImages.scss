@@ -162,3 +162,97 @@
 		width: 20%;
 	}
 }
+
+@media only screen and (max-width: 600px)
+{
+	.brawl {
+		
+		&-box1, &-box2, &-box3 {
+			max-width: 30vw;
+		}
+		&-box1 {
+			top: 10%;
+			left: -5vw;
+		}
+		&-box2 {
+			top: 26%;
+			right: -5vw;
+		}
+		&-box3 {
+			bottom: 13%;
+			left: -3vw;
+		}
+	}
+
+	.albion {
+		&-item1, &-item2, &-item3, &-item4 {
+			max-width: 30vw;
+		}
+		&-item1 {
+			top: -3%;
+			left: -2vw;
+		}
+		&-item2 {
+			right: -5vw;
+			top: 34%;
+		}
+		&-item3 {
+			top: -100vw;
+			left: -3vw;
+		}
+		&-item4 {
+			top: 40%;
+			right: -3vw;
+		}
+	}
+
+	.lol {
+		&-item1, &-item2, &-item3, &-item4 {
+			max-width: 30vw;
+		}
+		&-item1 {
+			top: -3%;
+			right: -5vw;
+		}
+		&-item2 {
+			left: -5vw;
+			top: 33%;
+		}
+		&-item3 {
+			bottom: 15%;
+			right: -2vw;
+			z-index: 1;
+		}
+		&-item4 {
+			z-index: 1;
+			left: -3vw;
+			bottom: -16%;
+		}
+	}
+
+	.hs {
+		&-item1, &-item2, &-item3 {max-width: 30vw;}
+		&-item1 {left: -3vw;}
+		&-item2 {right: -3vw;}
+		&-item3 {left: -3vw;}
+	}
+	.wow {
+		&-item1, &-item2, &-item3 {max-width: 30vw;}
+		&-item1 {right: -3vw;}
+		&-item2 {left: -4vw;}
+		&-item3 {right: -3vw;}
+	}
+	.steam {
+		&-item1, &-item2, &-item3, &-item4 {max-width: 30vw;}
+		&-item1 {right: -3vw;}
+		&-item2 {left: -3vw;}
+		&-item3 {right: -3vw;}
+		&-item4 {left: -3vw;}
+	}
+	.other {
+		&-item1, &-item2, &-item3 {max-width: 30vw;}
+		&-item1 {right: -3vw;}
+		&-item2 {left: -3vw;}
+		&-item3 {right: -3vw;}
+	}
+}

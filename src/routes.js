@@ -16,7 +16,7 @@ import Account from './pages/Account';
 
 export const useRoutes = () => {
 		return(
-			<div>
+			<div className='app-container'>
 				<Navibar />
 				<Switch>
 					<Route path="/" exact component={Main} />

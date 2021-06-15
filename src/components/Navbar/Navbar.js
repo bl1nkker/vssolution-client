@@ -25,7 +25,7 @@ export default function Navibar (){
 						<h1 className="page-title header-title">VSSOLUTION</h1>
 					</NavLink>
 					<p className="page-subtitle-h header-subtitle">Продай аккаунт, предметы или валюту в популярных онлайн играх</p>
-					<div className="d-flex justify-content-center align-items-end">
+					<div className="d-flex justify-content-center align-items-start app-navbar">
 						{
 							isLogin
 							? 	<>

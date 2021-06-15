@@ -80,3 +80,80 @@ input[type="file"] {
 	font-size: 40px;
 	left: 42%;
 }
+
+// Added
+
+.files-info-container
+{
+	
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 50vw;
+}
+
+.file-info-container
+{
+	display: flex;
+	align-items: center;
+	border: 1px blue solid;
+	border-radius: 10px;
+	background-color: #1d568c;
+	
+	color: #ffffffbd;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+.file-info
+{
+	font-size: 12px;
+}
+
+.file-delete{
+	background-color: #1d568c;
+	color: rgb(255, 106, 106);
+	border:none;
+	transition: .5s;
+}
+
+.file-delete:hover
+{
+	color: rgb(252, 10, 10);
+}
+
+@media only screen and (max-width: 600px) 
+{
+	.files-info-container{width: 10vw;}
+	.file-info {font-size: var(--media-small-font);}
+	.button {
+		&-choise,
+		&-sell {
+			width: 40vw;
+			height: 5vh;
+		}
+		&-upload {
+			width: 40vw;
+			height: 5vh;
+		}
+		&-submit {
+			width: 40vw;
+			height: 5vh;
+		}
+	}
+
+	.has-file::after {
+		content: "\2714";
+		position: absolute;
+		color: green;
+		font-size: 20px;
+		left: -20vw;
+	}
+	.non-file::after {
+		content: '\2718';
+		position: absolute;
+		color: red;
+		font-size: 20px;
+		left: 70vw;
+	}
+}

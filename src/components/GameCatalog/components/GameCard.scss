@@ -65,3 +65,60 @@
     	z-index: 1;
 	}
 }
+
+@media only screen and (max-width: 600px)
+{
+	.game-card-image-img {width: 100px}
+
+	.hs {
+		&-chameleos {
+			right: 10vw;
+			top: -8vh;
+			z-index: 2;
+		}
+		&-ilGinot {
+			right: 0vw;
+			bottom: 28vh;
+		}
+		&-malchezar {
+			width: 80px;
+			right: 25vw;
+			top: -10vh;
+			z-index: 3;
+		}
+	}
+
+	.lol-hero {
+		bottom: 5vh;
+		right: 0vw;
+	}
+
+	.brawl {
+		&-boy {
+			right: -3vw;
+			bottom: 0px;
+		}
+		&-girl {
+			bottom: 0px;
+			left: -50vw;
+		}
+	}
+
+	.wow-illidan {
+		bottom: 0px;
+		right: -3vw;
+		width: 120px;
+	}
+	.steam {
+		&-dota {
+			right: -5vw;
+			bottom: -5vh;
+			z-index: 2;
+		}
+		&-pubg {
+			bottom: -10vh;
+			right: 70vw;
+			z-index: 1;
+		}
+	}
+}

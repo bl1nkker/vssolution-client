@@ -1,5 +1,9 @@
 .form {
 	&-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		background-color: rgba(0,4,44,1);
 		border-radius: 50px;
 		padding: 40px 100px;
@@ -25,4 +29,12 @@
 		font-weight: 400;
 		color: #FFFFFF;
 	}
+}
+
+@media only screen and (max-width: 600px) 
+{
+	.form-container{
+		width: 90vw;
+		padding: 20px 50px;}
+	
 }

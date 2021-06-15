@@ -1,5 +1,6 @@
 import axios 			from 'axios';
 import React 			from 'react';
+import { serverURL } from '../axios';
 import ButtonChoise 	from '../components/buttons/ButtonChoise';
 import ButtonSubmit 	from '../components/buttons/ButtonSubmit';
 import ButtonUpload 	from '../components/buttons/ButtonUpload';
@@ -27,20 +28,43 @@ class Albion extends React.Component {
 			modalActive: false,
 			modalActiveSilver: false,
 			userData: JSON.parse(localStorage.getItem('userData')),
-			gameName: "Albion Online"
+			gameName: "Albion Online",
+			uploadedFiles: [],
+			uploadedFileName: '',
+			uploadedFileSize: null
+			
 		}
 		this.submitAlbion = this.submitAlbion.bind(this);
 		this.sellSilver = this.sellSilver.bind(this);
 		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+		this.removeFromList = this.removeFromList.bind(this)
+	}
+
+	// Added
+	removeFromList (event, fileToRemove)
+	{
+		event.preventDefault()
+		const updatedFilesList = [...this.state.uploadedFiles].filter(file => file.name !== fileToRemove.name)
+		this.setState({ uploadedFiles: [...updatedFilesList] })
+		// console.log(updatedFilesList);
 	}
 	
 	fileUploadHandler (event) {
 		const btnUpload = document.querySelector(".button-upload");
 		if (event.target.files) {
-			btnUpload.classList.remove('non-file');
-			btnUpload.classList.add('has-file');
+			let listOfFiles = []
+			Array.from(event.target.files).forEach(file => listOfFiles.push(file));
+			this.setState({ uploadedFiles: [...listOfFiles]})
+			// this.setState({ uploadedFileName: event.target.files[0]?.name, 
+			// 	uploadedFileSize:event.target.files[0]?.size})
+
+			// Removed
+			// btnUpload.classList.remove('non-file');
+			// btnUpload.classList.add('has-file');
 		}
 	}
+
+	
 
 	async submitAlbion(event) {
 		const data = new FormData();
@@ -58,7 +82,8 @@ class Albion extends React.Component {
 		data.append("contacts", event.target[4].value);
 		
 		event.preventDefault();
-		await axios.post('/sell/account/albion', data, {
+		// http://localhost:5000/sell/account/albion
+		await axios.post(serverURL + '/sell/account/albion', data, {
 			headers: {
 				'Content-Type': 'multipart/form-data'
 			}
@@ -141,13 +166,18 @@ class Albion extends React.Component {
 							name="screenshot"
 							id="screenshot"
 							changeHandler={e => this.fileUploadHandler(e)}
-						/>
+							// Added
+							uploadedFiles={this.state.uploadedFiles}
+							changeHandler={e => this.fileUploadHandler(e)}
+							removeFromList={this.removeFromList} />
+						
 					</Upload>
 					<TextInput 
 						title="Укажите контактную информацию"
 						placeholder="Например: xxxxxxx@gmail.com"
 						name="contacts"
 						required
+						isContacts={true}
 					>
 						<SocialSubtitle text="@Telegram , VK , Номер тел. , Эл. почта и т.д."/>
 					</TextInput>
@@ -171,6 +201,7 @@ class Albion extends React.Component {
 						placeholder="Например: xxxxxxx@gmail.com"
 						name="contacts"
 						required
+						isContacts={true}
 					>
 						<SocialSubtitle text="@Telegram , VK , Номер тел. , Эл. почта и т.д."/>
 					</TextInput>

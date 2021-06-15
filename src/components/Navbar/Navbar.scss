@@ -1,4 +1,5 @@
 .navbar {
+	flex-wrap: wrap;
 	padding: 0;
 	background-color: #00042C;
 	&-link {
@@ -44,6 +45,16 @@
 		background-color: #050C53;
 		&::after {
 			background-color: #8F3365;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.navbar {
+		&-link {
+			button{
+				max-width: 100%;
+			}
 		}
 	}
 }
