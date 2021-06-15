@@ -68,21 +68,21 @@
 
 @media only screen and (max-width: 600px)
 {
-	.game-card-image-img {width: 100px}
+	.game-card-image-img {width: 80px}
 
 	.hs {
 		&-chameleos {
-			right: 10vw;
+			right: -5vw;
 			top: -8vh;
 			z-index: 2;
 		}
 		&-ilGinot {
-			right: 0vw;
-			bottom: 28vh;
+			right: -7vw;
+			bottom: 80%;
 		}
 		&-malchezar {
 			width: 80px;
-			right: 25vw;
+			right: 7vw;
 			top: -10vh;
 			z-index: 3;
 		}
